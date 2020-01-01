@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -54,6 +55,10 @@ public class PerfilUsuario extends AppCompatActivity {
         String photo = info_user.get("user_photo");
         Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
 
+        proceso();
+    }
+
+    public void proceso (){
         iniciarBaseDeDatos();
         //leerTweets();
         consultarSilla("1", "1");
@@ -153,6 +158,15 @@ public class PerfilUsuario extends AppCompatActivity {
     public void enviarInformacionMesa(String id, boolean disponible){
         DatabaseReference mesas = db_reference.child("Mesa");
         mesas.child(id).child("Disponible").setValue(disponible);
+
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                proceso();
+            }
+        };
+        handler.postDelayed(runnable, 3000);
     }
 
     public void escribirTweets(String autor, String providerId, String phoneNumber){
