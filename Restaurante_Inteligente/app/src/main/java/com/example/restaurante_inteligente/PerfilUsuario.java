@@ -105,6 +105,7 @@ public class PerfilUsuario extends AppCompatActivity {
                         txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                         System.out.println(dataSnapshot.getValue());
                         if ((boolean)dataSnapshot.getValue()) {
+                            //if (dataSnapshot.getValue() == 000000000070000000) {
                             txt_disponibilidad.setText("Silla disponible");
                             System.out.println("Silla disponible");
                         } else {
