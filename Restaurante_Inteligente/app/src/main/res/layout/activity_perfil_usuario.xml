@@ -53,6 +53,14 @@
       android:text="Numero de Telefono"
       android:textSize="18sp" />
 
+  <TextView
+      android:id="@+id/txt_disponibilidad"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:text="Disponibilidad"
+      android:textSize="18sp" />
+
   <Button
       android:id="@+id/btn_logout"
       android:layout_width="match_parent"

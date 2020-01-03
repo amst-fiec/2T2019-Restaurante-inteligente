@@ -27,7 +27,7 @@ import java.util.HashMap;
 
 public class PerfilUsuario extends AppCompatActivity {
 
-    TextView txt_id, txt_name, txt_email, txt_provider_id, txt_phone_number;
+    TextView txt_id, txt_name, txt_email, txt_provider_id, txt_phone_number, txt_disponibilidad;
     ImageView imv_photo;
     Button btn_logout;
     DatabaseReference db_reference;
@@ -62,7 +62,7 @@ public class PerfilUsuario extends AppCompatActivity {
         iniciarBaseDeDatos();
         //leerTweets();
         consultarSilla("1", "1");
-        consultarMesa("1");
+        //consultarMesa("1");
         enviarInformacionMesa("1", true);
         //escribirTweets(info_user.get("user_name"), info_user.get("user_provider_id"), info_user.get("user_phone_number"));
     }
@@ -102,10 +102,13 @@ public class PerfilUsuario extends AppCompatActivity {
                 .addValueEventListener (new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                         System.out.println(dataSnapshot.getValue());
                         if ((boolean)dataSnapshot.getValue()) {
+                            txt_disponibilidad.setText("Silla disponible");
                             System.out.println("Silla disponible");
                         } else {
+                            txt_disponibilidad.setText("Silla ocupada");
                             System.out.println("Silla ocupada");
                         }
                     }
@@ -124,9 +127,13 @@ public class PerfilUsuario extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         System.out.println(dataSnapshot.getValue());
+                        txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                         if ((boolean)dataSnapshot.getValue()) {
+                            txt_disponibilidad.setText("Mesa disponible");
                             System.out.println("Mesa disponible");
+
                         } else {
+                            txt_disponibilidad.setText("Mesa ocupada");
                             System.out.println("Mesa ocupada");
                         }
                     }
@@ -147,6 +154,7 @@ public class PerfilUsuario extends AppCompatActivity {
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                             HashMap<String, String> mesa = (HashMap<String, String>) snapshot.getValue();
                             System.out.println(mesa.get("Disponible"));
+
                         }
                     }
                     @Override

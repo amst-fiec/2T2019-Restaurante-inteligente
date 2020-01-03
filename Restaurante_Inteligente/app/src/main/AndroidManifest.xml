@@ -22,6 +22,7 @@
       </intent-filter>
     </service>
     <activity android:name=".MainActivity"></activity>
+    <activity android:name=".PerfilUsuario" />
   </application>
 
 </manifest>
