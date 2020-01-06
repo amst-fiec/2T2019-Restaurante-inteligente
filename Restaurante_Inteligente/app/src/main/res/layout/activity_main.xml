@@ -13,6 +13,7 @@
       android:layout_width="315dp"
       android:layout_height="163dp"
       android:layout_marginBottom="44dp"
+      android:contentDescription="@string/logos"
       app:layout_constraintBottom_toTopOf="@+id/button"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"

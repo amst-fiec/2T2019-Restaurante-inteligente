@@ -4,7 +4,8 @@
   <string name="btnSesion">Iniciar Sesión</string>
   <string name="btnMesas">Mesas Disponibles</string>
   <string name="btnCerrarSesion">Cerrar Sesión</string>
-  <string name="btnPerfil">Ver Perfil</string>
-  <string name="btnBateria">Ver Batería</string>
+  <string name="btnPerfil">Perfil</string>
+  <string name="btnBateria">Batería</string>
   <string name="EstadoMesas">Estado Restaurante</string>
+  <string name="logos">Logo Imagen</string>
 </resources>

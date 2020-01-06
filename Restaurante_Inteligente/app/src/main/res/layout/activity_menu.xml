@@ -12,6 +12,7 @@
         android:layout_width="236dp"
         android:layout_height="221dp"
         android:layout_marginTop="44dp"
+        android:contentDescription="@string/logos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -35,7 +36,7 @@
             android:layout_height="wrap_content"
             android:onClick="verMesas"
             android:text="@string/btnMesas"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="italic" />
 
         <Button
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:onClick="estadoRestaurante"
             android:text="@string/EstadoMesas"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="italic" />
 
         <Button
@@ -55,17 +56,17 @@
             android:layout_height="wrap_content"
             android:onClick="verPerfil"
             android:text="@string/btnPerfil"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="italic" />
 
         <Button
-            android:id="@+id/btnCerrarSesion"
+            android:id="@+id/btnBateria"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="cerrarSesion"
-            android:text="@string/btnCerrarSesion"
-            android:textSize="18sp"
+            android:text="@string/btnBateria"
+            android:textSize="24sp"
             android:textStyle="italic" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
