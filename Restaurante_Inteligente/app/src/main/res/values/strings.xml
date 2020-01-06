@@ -8,4 +8,7 @@
   <string name="btnBateria">Batería</string>
   <string name="EstadoMesas">Estado Restaurante</string>
   <string name="logos">Logo Imagen</string>
+  <string name="txtDisponible">Mesas Disponibles</string>
+  <string name="txtRestaurante">Estado Restaurante</string>
+  <string name="Recycler">Recycler</string>
 </resources>
