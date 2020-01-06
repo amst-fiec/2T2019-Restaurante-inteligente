@@ -1,9 +1,10 @@
 <resources>
-  <string name="app_name">Restaurante_Inteligente</string>
+  <string name="app_name">Smart Restaurant</string>
   <string name="tvMain">Smart Restaurant</string>
   <string name="btnSesion">Iniciar Sesión</string>
   <string name="btnMesas">Mesas Disponibles</string>
   <string name="btnCerrarSesion">Cerrar Sesión</string>
   <string name="btnPerfil">Ver Perfil</string>
   <string name="btnBateria">Ver Batería</string>
+  <string name="EstadoMesas">Estado Restaurante</string>
 </resources>

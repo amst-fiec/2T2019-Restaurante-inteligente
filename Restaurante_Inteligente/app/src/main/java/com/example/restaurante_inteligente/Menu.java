@@ -40,8 +40,11 @@ public class Menu extends AppCompatActivity {
 
     }
 
-    public void verBateria (View view){
-        //Intent intent = new Intent(this, Bateria.class);
-        //startActivity(intent);
+    public void estadoRestaurante(View view){
+        Intent intent = new Intent(this, EstadoRestaurante.class);
+        startActivity(intent);
+
     }
+
+
 }

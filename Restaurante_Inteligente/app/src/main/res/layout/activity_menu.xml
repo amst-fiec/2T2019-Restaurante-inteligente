@@ -39,6 +39,16 @@
             android:textStyle="italic" />
 
         <Button
+            android:id="@+id/btnEstado"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="estadoRestaurante"
+            android:text="@string/EstadoMesas"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+        <Button
             android:id="@+id/btnPerfil"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
@@ -55,16 +65,6 @@
             android:layout_height="wrap_content"
             android:onClick="cerrarSesion"
             android:text="@string/btnCerrarSesion"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-
-        <Button
-            android:id="@+id/btnBateria"
-            style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="verBateria"
-            android:text="@string/btnBateria"
             android:textSize="18sp"
             android:textStyle="italic" />
     </LinearLayout>
