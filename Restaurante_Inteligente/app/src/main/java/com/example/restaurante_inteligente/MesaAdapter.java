@@ -28,10 +28,10 @@ public class MesaAdapter extends RecyclerView.Adapter<MesaAdapter.MesaViewHolder
 
         public MesaViewHolder(@NonNull View itemView) {
             super(itemView);
-            imagen = (ImageView) itemView.findViewById(R.id.ImgLogo);
-            id = (TextView) itemView.findViewById(R.id.txtMesaID);
-            capacidad = (TextView) itemView.findViewById(R.id.txtCapacidad);
-            estado = (TextView) itemView.findViewById(R.id.txtEstado);
+            imagen = itemView.findViewById(R.id.ImgLogo);
+            id =  itemView.findViewById(R.id.txtMesaID);
+            capacidad =  itemView.findViewById(R.id.txtCapacidad);
+            estado =  itemView.findViewById(R.id.txtEstado);
         }
 
         public void asignarDatos(Mesa mesa) {

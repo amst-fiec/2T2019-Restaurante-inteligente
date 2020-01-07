@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             finish();
-            Intent intent = new Intent(this, Menu.class); //Cambio de PerfilUsuario a Menu
+            Intent intent = new Intent(this, PerfilUsuario.class); //Cambio de PerfilUsuario a Menu
             intent.putExtra("info_user", info_user);
             startActivity(intent);
         } else {

@@ -47,11 +47,11 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_provider_id = findViewById(R.id.txt_provider_id);
         txt_phone_number = findViewById(R.id.txt_phone_number);
 
-        txt_id.setText(info_user.get("user_id"));
-        txt_name.setText(info_user.get("user_name"));
-        txt_email.setText(info_user.get("user_email"));
-        txt_provider_id.setText(info_user.get("user_provider_id"));
-        txt_phone_number.setText(info_user.get("user_phone_number"));
+        txt_id.setText("ID: "+info_user.get("user_id"));
+        txt_name.setText("Nombre: "+info_user.get("user_name"));
+        txt_email.setText("Correo: "+info_user.get("user_email"));
+        txt_provider_id.setText("ProviderID: "+info_user.get("user_provider_id"));
+        txt_phone_number.setText("Teléfono: "+info_user.get("user_phone_number"));
         String photo = info_user.get("user_photo");
         Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
 
