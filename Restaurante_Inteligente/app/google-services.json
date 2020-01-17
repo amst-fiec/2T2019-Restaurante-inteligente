@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "853148886476-4ei08rj8vg46sjh7uvmo2rchvqsuqf35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.restaurante_inteligente",
+            "certificate_hash": "820e9f59e7b1c3ec684b920eb14dd791c5f5fa02"
+          }
+        },
+        {
           "client_id": "853148886476-gu7s918h8p5bmkkhqie7ikcm0tvbnpn8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

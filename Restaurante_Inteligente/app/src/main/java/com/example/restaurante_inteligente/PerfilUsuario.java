@@ -78,7 +78,7 @@ public class PerfilUsuario extends AppCompatActivity {
     }
 
     public void iniciarBaseDeDatos(){
-        db_reference = FirebaseDatabase.getInstance().getReference().child("Grupo");
+        db_reference = FirebaseDatabase.getInstance().getReference();
     }
 
     public void leerTweets(){
@@ -99,7 +99,7 @@ public class PerfilUsuario extends AppCompatActivity {
     }
 
     public void consultarSilla(String idMesa, String idSilla){
-        DatabaseReference sillas = db_reference.child("Mesa").child(idMesa).child("Sillas");
+        DatabaseReference sillas = db_reference.child("Grupo").child("Mesa").child(idMesa).child("Sillas");
         sillas.child(idSilla).child("Disponible")
                 .addValueEventListener (new ValueEventListener() {
                     @Override
@@ -173,13 +173,16 @@ public class PerfilUsuario extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                         System.out.println(dataSnapshot.hasChildren());
-                        System.out.println(dataSnapshot.getChildren());
+                        System.out.println(dataSnapshot.getValue());
+                        int contador = 0;
                         for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                            System.out.println(childDataSnapshot.getValue());
-                        }
-                        if (dataSnapshot.getChildren().iterator().hasNext()) {
-                            DataSnapshot registro = dataSnapshot.getChildren().iterator().next();
-                            System.out.println(registro);
+                            if (contador == 0) {
+                                HashMap<String, String> hashMap = (HashMap<String, String>) childDataSnapshot.getValue();
+
+                                System.out.println(hashMap);
+                            }
+                            contador++;
+                            break;
                         }
 
 
@@ -195,8 +198,7 @@ public class PerfilUsuario extends AppCompatActivity {
                             txt_disponibilidad.setText("Silla ocupada");
                             System.out.println("Silla ocupada");
                         }
-
-                         */
+                        */
                     }
 
                     @Override
@@ -204,6 +206,8 @@ public class PerfilUsuario extends AppCompatActivity {
                         System.out.println(error.toException());
                     }
                 });;
+
+
     }
 
     public void enviarInformacionMesa(String id, boolean disponible){
