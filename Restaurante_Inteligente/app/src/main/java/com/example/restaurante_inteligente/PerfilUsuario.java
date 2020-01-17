@@ -61,9 +61,11 @@ public class PerfilUsuario extends AppCompatActivity {
     public void proceso (){
         iniciarBaseDeDatos();
         //leerTweets();
+
         consultarSilla("1", "1");
         //consultarMesa("1");
-        enviarInformacionMesa("1", true);
+        escucharEButton();
+        //enviarInformacionMesa("1", true);
         //escribirTweets(info_user.get("user_name"), info_user.get("user_provider_id"), info_user.get("user_phone_number"));
     }
 
@@ -162,6 +164,46 @@ public class PerfilUsuario extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
                     }
                 });
+    }
+
+    public void escucharEButton(){
+        DatabaseReference registros = db_reference.child("Registros");
+        registros.addValueEventListener (new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
+                        System.out.println(dataSnapshot.hasChildren());
+                        System.out.println(dataSnapshot.getChildren());
+                        for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                            System.out.println(childDataSnapshot.getValue());
+                        }
+                        if (dataSnapshot.getChildren().iterator().hasNext()) {
+                            DataSnapshot registro = dataSnapshot.getChildren().iterator().next();
+                            System.out.println(registro);
+                        }
+
+
+                        DatabaseReference mesas = db_reference.child("Mesa");
+                        //mesas.child(Integer.parseInt(registro.getValue())).child("Disponible").setValue(disponible);
+
+                        /*
+                        if ((boolean)dataSnapshot.getChildren().iterator().next().getValue()) {
+                            //if (dataSnapshot.getValue() == 000000000070000000) {
+                            txt_disponibilidad.setText("Silla disponible");
+                            System.out.println("Silla disponible");
+                        } else {
+                            txt_disponibilidad.setText("Silla ocupada");
+                            System.out.println("Silla ocupada");
+                        }
+
+                         */
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        System.out.println(error.toException());
+                    }
+                });;
     }
 
     public void enviarInformacionMesa(String id, boolean disponible){

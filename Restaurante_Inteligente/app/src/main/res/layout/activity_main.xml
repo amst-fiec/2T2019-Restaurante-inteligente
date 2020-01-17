@@ -5,19 +5,8 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/like"
+    android:background="@drawable/logoinicio"
     tools:context=".MainActivity" >
-
-  <ImageView
-      android:id="@+id/imageView2"
-      android:layout_width="315dp"
-      android:layout_height="163dp"
-      android:layout_marginBottom="44dp"
-      android:contentDescription="@string/logos"
-      app:layout_constraintBottom_toTopOf="@+id/button"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/mesa" />
 
   <TextView
       android:id="@+id/tvMain"
@@ -28,11 +17,9 @@
       android:textIsSelectable="false"
       android:textSize="36sp"
       android:textStyle="italic"
-      app:layout_constraintBottom_toTopOf="@+id/imageView2"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.736" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <Button
       android:id="@+id/button"
