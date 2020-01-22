@@ -71,7 +71,7 @@ public class PerfilUsuario extends AppCompatActivity {
         iniciarBaseDeDatos();
         consultarSilla("1", "1");
         //consultarMesa("1");
-        escucharEButton();
+        //escucharEButton();
         //enviarInformacionMesa("1", true);
     }
 

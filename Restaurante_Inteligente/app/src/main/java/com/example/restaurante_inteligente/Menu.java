@@ -6,12 +6,95 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Menu extends AppCompatActivity {
+    DatabaseReference db_reference;
+    int contador = 0;
+    HashMap<String, Object> hashMap = new HashMap<>();
+    boolean valor = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        iniciarBaseDeDatos();
+        escucharEButton();
+    }
+
+    public void iniciarBaseDeDatos(){
+        db_reference = FirebaseDatabase.getInstance().getReference();
+    }
+
+    public void escucharEButton(){
+        DatabaseReference registros = db_reference.child("Registros");
+        registros.orderByKey().limitToLast(1).addValueEventListener (new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
+                System.out.println(dataSnapshot.hasChildren());
+                System.out.println(dataSnapshot.getValue());
+                contador++;
+                for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
+                    hashMap = (HashMap<String, Object>) childDataSnapshot.getValue();
+                    System.out.println(hashMap);
+                    break;
+                }
+                System.out.println("HASHMAP");
+                System.out.println(hashMap);
+                if (contador == 2) {
+                    consultarSilla(new Long((Long)hashMap.get("Mesa")).toString(),new Long((Long)hashMap.get("Silla")).toString());
+                    DatabaseReference mesas = db_reference.child("Grupo").child("Mesa").child(new Long((Long)hashMap.get("Mesa")).toString());
+                    DatabaseReference silla = mesas.child("Silla").child(new Long((Long)hashMap.get("Silla")).toString());
+                    System.out.println(mesas.child("Disponible"));
+
+                    if (valor) {
+                        mesas.child("Disponible").setValue(false);
+                        silla.child("Disponible").setValue(false);
+                    } else {
+                        mesas.child("Disponible").setValue(true);
+                        silla.child("Disponible").setValue(true);
+                    }
+                    //System.out.println(mesas.child((String)hashMap.get("Mesa")).child("Sillas").child((String)hashMap.get("Silla")).child("disponible"));
+                    contador = 0;
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.out.println(error.toException());
+            }
+        });
+    }
+
+    public boolean consultarSilla(String idMesa, String idSilla){
+        DatabaseReference sillas = db_reference.child("Grupo").child("Mesa").child(idMesa).child("Sillas");
+        sillas.child(idSilla).child("Disponible")
+                .addValueEventListener (new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if ((boolean)dataSnapshot.getValue()) {
+                            valor =  true;
+                        } else {
+                            valor = false;
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError error) {
+                        System.out.println(error.toException());
+                    }
+                });
+        return valor;
     }
 
 
