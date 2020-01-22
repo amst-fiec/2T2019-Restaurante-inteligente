@@ -31,6 +31,8 @@ public class PerfilUsuario extends AppCompatActivity {
     ImageView imv_photo;
     Button btn_logout;
     DatabaseReference db_reference;
+    int contador;
+    HashMap<String, String> hashMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,26 +49,30 @@ public class PerfilUsuario extends AppCompatActivity {
         txt_provider_id = findViewById(R.id.txt_provider_id);
         txt_phone_number = findViewById(R.id.txt_phone_number);
 
-        txt_id.setText("ID: "+info_user.get("user_id"));
-        txt_name.setText("Nombre: "+info_user.get("user_name"));
-        txt_email.setText("Correo: "+info_user.get("user_email"));
-        txt_provider_id.setText("ProviderID: "+info_user.get("user_provider_id"));
-        txt_phone_number.setText("Teléfono: "+info_user.get("user_phone_number"));
-        String photo = info_user.get("user_photo");
-        Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
+        try {
+            if (info_user != null) {
+                txt_id.setText("ID: "+info_user.get("user_id"));
+                txt_name.setText("Nombre: "+info_user.get("user_name"));
+                txt_email.setText("Correo: "+info_user.get("user_email"));
+                txt_provider_id.setText("ProviderID: "+info_user.get("user_provider_id"));
+                txt_phone_number.setText("Teléfono: "+info_user.get("user_phone_number"));
+                String photo = info_user.get("user_photo");
+                Picasso.with(getApplicationContext()).load(photo).into(imv_photo);
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
 
         proceso();
     }
 
     public void proceso (){
         iniciarBaseDeDatos();
-        //leerTweets();
-
         consultarSilla("1", "1");
         //consultarMesa("1");
         escucharEButton();
         //enviarInformacionMesa("1", true);
-        //escribirTweets(info_user.get("user_name"), info_user.get("user_provider_id"), info_user.get("user_phone_number"));
     }
 
     public void cerrarSesion(View view){
@@ -79,23 +85,6 @@ public class PerfilUsuario extends AppCompatActivity {
 
     public void iniciarBaseDeDatos(){
         db_reference = FirebaseDatabase.getInstance().getReference();
-    }
-
-    public void leerTweets(){
-        db_reference.child("Grupo 2").child("tweets")
-                .addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                            System.out.println(snapshot);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        System.out.println(error.toException());
-                    }
-                });
     }
 
     public void consultarSilla(String idMesa, String idSilla){
@@ -174,20 +163,28 @@ public class PerfilUsuario extends AppCompatActivity {
                         txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                         System.out.println(dataSnapshot.hasChildren());
                         System.out.println(dataSnapshot.getValue());
-                        int contador = 0;
+
+
                         for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                             if (contador == 0) {
-                                HashMap<String, String> hashMap = (HashMap<String, String>) childDataSnapshot.getValue();
-
+                                hashMap = (HashMap<String, String>) childDataSnapshot.getValue();
+                                System.out.println(hashMap.get("-LyFb35x3HilYiURfg-A"));
                                 System.out.println(hashMap);
                             }
                             contador++;
                             break;
                         }
+                        System.out.println("HASHMAP");
+                        System.out.println(hashMap);
+                        if (contador == 2) {
+                            DatabaseReference mesas = db_reference.child(hashMap.get(0)).child("Mesa");
+                            System.out.println(mesas.child(hashMap.get("Mesa")).child("Sillas").child(hashMap.get("Silla")).child("disponible"));
+
+                        }
 
 
-                        DatabaseReference mesas = db_reference.child("Mesa");
-                        //mesas.child(Integer.parseInt(registro.getValue())).child("Disponible").setValue(disponible);
+
+                        //
 
                         /*
                         if ((boolean)dataSnapshot.getChildren().iterator().next().getValue()) {
@@ -223,21 +220,4 @@ public class PerfilUsuario extends AppCompatActivity {
         };
         handler.postDelayed(runnable, 3000);
     }
-
-    public void escribirTweets(String autor, String providerId, String phoneNumber){
-        String tweet = "hola mundo firebase 2";
-        String fecha = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-        Map<String, String> hola_tweet = new HashMap<String, String>();
-        hola_tweet.put("autor", autor);
-        hola_tweet.put("fecha", fecha);
-        hola_tweet.put("provider ID", providerId);
-        hola_tweet.put("telefono", phoneNumber);
-        DatabaseReference tweets = db_reference.child("Grupo 2").child("tweets");
-        tweets.setValue(tweet);
-        tweets.child(tweet).child("autor").setValue(autor);
-        tweets.child(tweet).child("fecha").setValue(fecha);
-        tweets.child(tweet).child("provider ID").setValue(providerId);
-        tweets.child(tweet).child("telefono").setValue(phoneNumber);
-    }
-
 }
