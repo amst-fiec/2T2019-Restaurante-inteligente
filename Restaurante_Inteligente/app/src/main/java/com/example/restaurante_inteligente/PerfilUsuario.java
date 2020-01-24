@@ -155,58 +155,6 @@ public class PerfilUsuario extends AppCompatActivity {
                 });
     }
 
-    public void escucharEButton(){
-        DatabaseReference registros = db_reference.child("Registros");
-        registros.addValueEventListener (new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
-                        System.out.println(dataSnapshot.hasChildren());
-                        System.out.println(dataSnapshot.getValue());
-
-
-                        for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
-                            if (contador == 0) {
-                                hashMap = (HashMap<String, String>) childDataSnapshot.getValue();
-                                System.out.println(hashMap.get("-LyFb35x3HilYiURfg-A"));
-                                System.out.println(hashMap);
-                            }
-                            contador++;
-                            break;
-                        }
-                        System.out.println("HASHMAP");
-                        System.out.println(hashMap);
-                        if (contador == 2) {
-                            DatabaseReference mesas = db_reference.child(hashMap.get(0)).child("Mesa");
-                            System.out.println(mesas.child(hashMap.get("Mesa")).child("Sillas").child(hashMap.get("Silla")).child("disponible"));
-
-                        }
-
-
-
-                        //
-
-                        /*
-                        if ((boolean)dataSnapshot.getChildren().iterator().next().getValue()) {
-                            //if (dataSnapshot.getValue() == 000000000070000000) {
-                            txt_disponibilidad.setText("Silla disponible");
-                            System.out.println("Silla disponible");
-                        } else {
-                            txt_disponibilidad.setText("Silla ocupada");
-                            System.out.println("Silla ocupada");
-                        }
-                        */
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError error) {
-                        System.out.println(error.toException());
-                    }
-                });;
-
-
-    }
-
     public void enviarInformacionMesa(String id, boolean disponible){
         DatabaseReference mesas = db_reference.child("Mesa");
         mesas.child(id).child("Disponible").setValue(disponible);

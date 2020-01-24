@@ -40,23 +40,17 @@ public class Menu extends AppCompatActivity {
         registros.orderByKey().limitToLast(1).addValueEventListener (new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //txt_disponibilidad = findViewById(R.id.txt_disponibilidad);
                 System.out.println(dataSnapshot.hasChildren());
                 System.out.println(dataSnapshot.getValue());
                 contador++;
                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                     hashMap = (HashMap<String, Object>) childDataSnapshot.getValue();
-                    System.out.println(hashMap);
                     break;
                 }
-                System.out.println("HASHMAP");
-                System.out.println(hashMap);
                 if (contador == 2) {
                     consultarSilla(new Long((Long)hashMap.get("Mesa")).toString(),new Long((Long)hashMap.get("Silla")).toString());
                     DatabaseReference mesas = db_reference.child("Grupo").child("Mesa").child(new Long((Long)hashMap.get("Mesa")).toString());
-                    DatabaseReference silla = mesas.child("Silla").child(new Long((Long)hashMap.get("Silla")).toString());
-                    System.out.println(mesas.child("Disponible"));
-
+                    DatabaseReference silla = mesas.child("Sillas").child(new Long((Long)hashMap.get("Silla")).toString());
                     if (valor) {
                         mesas.child("Disponible").setValue(false);
                         silla.child("Disponible").setValue(false);
@@ -64,7 +58,6 @@ public class Menu extends AppCompatActivity {
                         mesas.child("Disponible").setValue(true);
                         silla.child("Disponible").setValue(true);
                     }
-                    //System.out.println(mesas.child((String)hashMap.get("Mesa")).child("Sillas").child((String)hashMap.get("Silla")).child("disponible"));
                     contador = 0;
                 }
             }
@@ -100,6 +93,11 @@ public class Menu extends AppCompatActivity {
 
     public void verMesas (View view){
         Intent intent = new Intent(this, EstadoMesa.class);
+        startActivity(intent);
+    }
+
+    public void verBateria (View view){
+        Intent intent = new Intent(this, EstadoBateria.class);
         startActivity(intent);
     }
 

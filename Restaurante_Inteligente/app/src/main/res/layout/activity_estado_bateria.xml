@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/color"
-    tools:context=".EstadoMesa">
-
+    tools:context=".EstadoBateria">
 
     <TextView
         android:id="@+id/txtBateria"
@@ -14,17 +13,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:layout_marginBottom="63dp"
-        android:text="@string/txtDisponible"
+        android:text="Estado de las baterias"
         android:textSize="30sp"
         android:textStyle="italic"
-        app:layout_constraintBottom_toTopOf="@+id/contenedor"
+        app:layout_constraintBottom_toTopOf="@+id/contenedor_bateria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/contenedor"
+        android:id="@+id/contenedor_bateria"
         android:layout_width="296dp"
         android:layout_height="525dp"
         android:layout_marginStart="56dp"
@@ -34,4 +33,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"></LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

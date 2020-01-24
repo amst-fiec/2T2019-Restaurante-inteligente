@@ -1,26 +1,26 @@
 <resources>
-  <string name="app_name">Restaurante Firebase</string>
-  <string name="tvMain">Restaurante Firebase</string>
-  <string name="btnSesion">Iniciar Sesión</string>
-  //Menu
-  <string name="btnMesas">Mesas Disponibles</string>
-  <string name="btnCerrarSesion">Cerrar Sesión</string>
-  <string name="btnPerfil">Perfil</string>
-  <string name="btnBateria">Batería</string>
-  <string name="EstadoMesas">Estado Restaurante</string>
-  //Adapter
-  <string name="logos">Logo Imagen</string>
-  <string name="txtDisponible">Mesas Disponibles</string>
-  <string name="txtRestaurante">Estado Restaurante</string>
-  <string name="Recycler">Recycler</string>
-  //PerfilUsuario
-  <string name="txtPerfil">Perfil del Usuario</string>
-  <string name="imvPerfil">Imagen Perfil</string>
-  <string name="txtUsuario">Nombre del Usuario</string>
-  <string name="txtProviderId">ProviderID</string>
-  <string name="txtTelefono">Telefono</string>
-  <string name="txtDisponibilidad">Disponibilidad</string>
-  <string name="txtUsuarioId">UsuarioID</string>
-  <string name="txtCorreo">Correo</string>
-  <string name="btnLogout">Cerrrar Sesión</string>
+    <string name="app_name">Restaurante Firebase</string>
+    <string name="tvMain">Restaurante Firebase</string>
+    <string name="btnSesion">Iniciar Sesión</string>
+    //Menu
+    <string name="btnMesas">Mesas Disponibles</string>
+    <string name="btnCerrarSesion">Cerrar Sesión</string>
+    <string name="btnPerfil">Perfil</string>
+    <string name="btnBateria">Batería</string>
+    <string name="EstadoMesas">Estado Restaurante</string>
+    //Adapter
+    <string name="logos">Logo Imagen</string>
+    <string name="txtDisponible">Mesas Disponibles</string>
+    <string name="txtRestaurante">Estado Restaurante</string>
+    <string name="Recycler">Recycler</string>
+    //PerfilUsuario
+    <string name="txtPerfil">Perfil del Usuario</string>
+    <string name="imvPerfil">Imagen Perfil</string>
+    <string name="txtUsuario">Nombre del Usuario</string>
+    <string name="txtProviderId">ProviderID</string>
+    <string name="txtTelefono">Telefono</string>
+    <string name="txtDisponibilidad">Disponibilidad</string>
+    <string name="txtUsuarioId">UsuarioID</string>
+    <string name="txtCorreo">Correo</string>
+    <string name="btnLogout">Cerrrar Sesión</string>
 </resources>
