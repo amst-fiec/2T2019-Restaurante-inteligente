@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/color"
+    android:background="@drawable/fondo"
     tools:context=".Menu">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="236dp"
-        android:layout_height="221dp"
-        android:layout_marginTop="44dp"
-        android:contentDescription="@string/logos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mesa" />
+  <ImageView
+      android:id="@+id/imageView10"
+      android:layout_width="236dp"
+      android:layout_height="221dp"
+      android:layout_marginTop="50dp"
+      android:contentDescription="@string/logos"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/urbano" />
 
     <LinearLayout
         android:layout_width="329dp"

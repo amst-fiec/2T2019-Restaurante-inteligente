@@ -5,21 +5,33 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/color"
+    android:background="@drawable/fondo"
     tools:context=".MainActivity" >
 
   <TextView
       android:id="@+id/tvMain"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="@string/tvMain"
-      android:textAllCaps="false"
+      android:layout_marginTop="25dp"
+      android:text="Expedia Tisch"
+      android:textAllCaps="true"
       android:textIsSelectable="false"
       android:textSize="36sp"
-      android:textStyle="italic"
+      android:textStyle="bold|italic"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
+
+  <ImageView
+      android:id="@+id/imageView10"
+      android:layout_width="236dp"
+      android:layout_height="221dp"
+      android:layout_marginTop="100dp"
+      android:contentDescription="@string/logos"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/tvMain"
+      app:srcCompat="@drawable/mesa" />
 
   <Button
       android:id="@+id/button"
