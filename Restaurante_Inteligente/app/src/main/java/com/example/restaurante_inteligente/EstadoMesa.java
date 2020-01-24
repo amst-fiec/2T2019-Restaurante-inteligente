@@ -3,7 +3,10 @@ package com.example.restaurante_inteligente;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -48,8 +51,17 @@ public class EstadoMesa extends AppCompatActivity {
                         disponible = "Disponible";
                     }
                     TextView x = new TextView(that);
-                    String nombre_final = String.format("Mesa: %s, Estado: %s", nombre, disponible.toString());
-                    x.setText(nombre_final);
+                    String nombre_final = String.format("Mesa: %s, Estado: %s", nombre, disponible);
+                    SpannableString redSpannable = new SpannableString(nombre_final);
+                    SpannableString greenSpannable = new SpannableString(nombre_final);
+                    redSpannable.setSpan(new ForegroundColorSpan(Color.RED), (nombre_final.length() - disponible.length()), nombre_final.length(), 0);
+                    greenSpannable.setSpan(new ForegroundColorSpan(Color.GREEN), (nombre_final.length() - disponible.length()), nombre_final.length(), 0);
+                    if ((boolean)mesa.get("Disponible")) {
+                        x.setText(greenSpannable);
+                    } else {
+                        x.setText(redSpannable);
+                    }
+
                     x.callOnClick();
                     contenedor.addView(x);
                 }
