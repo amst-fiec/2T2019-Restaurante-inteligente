@@ -44,7 +44,6 @@ public class EstadoMesa extends AppCompatActivity {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     HashMap<String, Object> mesa = (HashMap<String, Object>) snapshot.getValue();
-                    System.out.println(mesa);
                     String nombre = snapshot.getKey();
                     String disponible = "Ocupada";
                     if ((boolean)mesa.get("Disponible")) {

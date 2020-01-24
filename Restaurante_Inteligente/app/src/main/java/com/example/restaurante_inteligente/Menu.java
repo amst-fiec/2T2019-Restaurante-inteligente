@@ -40,8 +40,6 @@ public class Menu extends AppCompatActivity {
         registros.orderByKey().limitToLast(1).addValueEventListener (new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                System.out.println(dataSnapshot.hasChildren());
-                System.out.println(dataSnapshot.getValue());
                 contador++;
                 for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                     hashMap = (HashMap<String, Object>) childDataSnapshot.getValue();
