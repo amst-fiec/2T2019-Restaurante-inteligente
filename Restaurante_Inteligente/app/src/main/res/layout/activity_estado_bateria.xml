@@ -9,11 +9,12 @@
 
   <TextView
       android:id="@+id/txtBateria"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="320dp"
+      android:layout_height="50dp"
       android:layout_marginTop="44dp"
       android:layout_marginBottom="63dp"
       android:text="Estado de las baterias"
+      android:textAlignment="center"
       android:textSize="30sp"
       android:textStyle="bold|italic"
       app:layout_constraintBottom_toTopOf="@+id/contenedor_bateria"

@@ -10,10 +10,13 @@
 
   <TextView
       android:id="@+id/tvMain"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="300dp"
+      android:layout_height="50dp"
+      android:layout_marginStart="8dp"
       android:layout_marginTop="25dp"
+      android:layout_marginEnd="8dp"
       android:text="Expedia Tisch"
+      android:textAlignment="center"
       android:textAllCaps="true"
       android:textIsSelectable="false"
       android:textSize="36sp"
@@ -24,9 +27,9 @@
 
   <ImageView
       android:id="@+id/imageView10"
-      android:layout_width="236dp"
-      android:layout_height="221dp"
-      android:layout_marginTop="100dp"
+      android:layout_width="210dp"
+      android:layout_height="210dp"
+      android:layout_marginTop="80dp"
       android:contentDescription="@string/logos"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +39,11 @@
   <Button
       android:id="@+id/button"
       style="@style/Widget.AppCompat.Button.Borderless"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="200dp"
+      android:layout_width="209dp"
+      android:layout_height="49dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginBottom="150dp"
       android:onClick="iniciarSesion"
       android:text="@string/btnSesion"
       android:textSize="24sp"
