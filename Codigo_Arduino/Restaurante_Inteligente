@@ -1,0 +1,58 @@
+
+#define LEDROJO 4
+#define ANALOGPILA 0
+int analogValor = 0;
+float voltaje = 0;
+int ledDelay = 800;
+float minimo = 5;
+
+void setup() {
+ pinMode(7,OUTPUT);
+ Serial.begin(9600);
+   digitalWrite(7,HIGH);
+    pinMode(LEDROJO, OUTPUT);
+}
+
+void loop() {
+  int sensorValue = analogRead(A0);
+  float voltage = sensorValue * (5.0 / 1023.0);
+    analogValor = analogRead(ANALOGPILA);
+  voltaje = 0.0048 * analogValor;
+  Serial.print("Voltaje: ");
+  Serial.println(voltaje);
+
+  Serial.println(voltage);
+   if (voltage<4){
+      digitalWrite(7,LOW);
+      delay (3000);
+      digitalWrite(7,HIGH);}
+    Serial.println(voltage);
+    while (voltage<4){
+      sensorValue = analogRead(A0);
+      voltage = sensorValue * (5.0 / 1023.0);
+      Serial.println(voltage);
+      }
+   if (4<voltage){
+      digitalWrite(7,LOW);
+      delay (3000);
+      digitalWrite(7,HIGH);}
+    Serial.println(voltage);
+    while (4<voltage){
+      sensorValue = analogRead(A0);
+      voltage = sensorValue * (5.0 / 1023.0); 
+      Serial.println(voltage);
+    }
+   
+if (voltaje <  minimo)
+  {
+    digitalWrite(LEDROJO, HIGH);
+    delay(ledDelay);
+    digitalWrite(LEDROJO, LOW);
+  }
+  digitalWrite(LEDROJO, LOW);
+
+    
+  
+ 
+ 
+}
