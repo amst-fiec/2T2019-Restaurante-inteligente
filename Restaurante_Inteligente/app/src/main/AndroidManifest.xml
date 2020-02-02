@@ -32,7 +32,6 @@
         </service>
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".PerfilUsuario" />
     </application>
 
 </manifest>

@@ -37,11 +37,11 @@ public class EstadoMesa extends AppCompatActivity {
     public void consultarMesas(){
         DatabaseReference mesas = db_reference.child("Grupo").child("Mesa");
         final Context that = this;
-        mesas.addListenerForSingleValueEvent(new ValueEventListener() {
+        mesas.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 contenedor = findViewById(R.id.contenedor);
-
+                contenedor.removeAllViews();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     HashMap<String, Object> mesa = (HashMap<String, Object>) snapshot.getValue();
                     String nombre = snapshot.getKey();

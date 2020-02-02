@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.autofill.Dataset;
 import android.view.View;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,8 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         iniciarBaseDeDatos();
+        enviarInformacionMesa("1",true);
+        enviarInformacionMesa("2", true);
         escucharEButton();
     }
 
@@ -88,7 +91,6 @@ public class Menu extends AppCompatActivity {
         return valor;
     }
 
-
     public void verMesas (View view){
         Intent intent = new Intent(this, EstadoMesa.class);
         startActivity(intent);
@@ -99,20 +101,6 @@ public class Menu extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * Se cierra al app, al ir de PerfilUsuario
-     * @param view
-     */
-    public void verPerfil (View view){
-        Intent intent = new Intent(this, PerfilUsuario.class);
-        startActivity(intent);
-    }
-
-    /**
-     * Todavia no esta implementado el cerrado de sesion, solo pasa
-     * de activity
-     *
-     */
     public void cerrarSesion (View view){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
@@ -125,5 +113,21 @@ public class Menu extends AppCompatActivity {
 
     }
 
+    public void enviarInformacionMesa(final String id, final boolean disponible){
+        final DatabaseReference mesas = db_reference.child("Grupo").child("Mesa");
+        mesas.child(id).child("Disponible").setValue(disponible);
+        mesas.child(id).child("Sillas").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot silla : dataSnapshot.getChildren()) {
+                    mesas.child(id).child("Sillas").child(silla.getKey()).child("Disponible").setValue(disponible);
+                }
+            }
 
+            @Override
+            public void onCancelled(DatabaseError error) {
+                System.out.println(error.toException());
+            }
+        });
+    }
 }

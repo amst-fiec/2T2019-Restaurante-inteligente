@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
     static final int GOOGLE_SIGN_IN = 123;
     FirebaseAuth mAuth;
     GoogleSignInClient mGoogleSignInClient;
-    Button btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,21 +99,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            HashMap<String, String> info_user = new HashMap<String, String>();
-            info_user.put("user_name", user.getDisplayName());
-            info_user.put("user_email", user.getEmail());
-            info_user.put("user_photo", String.valueOf(user.getPhotoUrl()));
-            info_user.put("user_id", user.getUid());
-            info_user.put("user_provider_id", user.getProviderId());
-            if (user.getPhoneNumber() != null){
-                info_user.put("user_phone_number", user.getPhoneNumber());
-            }else{
-                info_user.put("user_phone_number", "Sin Numero");
-            }
-
             finish();
-            Intent intent = new Intent(this, Menu.class); //Cambio de PerfilUsuario a Menu
-            intent.putExtra("info_user", info_user);
+            Intent intent = new Intent(this, Menu.class);
             startActivity(intent);
         } else {
             System.out.println("Sin Registrarse");
