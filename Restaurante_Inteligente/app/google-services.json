@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:853148886476:android:bdb1d4cdc6bfe58a89a969",
         "android_client_info": {
-          "package_name": "com.grupo2.restaurante_inteligente"
+          "package_name": "com.example.restaurante_inteligente"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "853148886476-4ei08rj8vg46sjh7uvmo2rchvqsuqf35.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.grupo2.restaurante_inteligente",
+            "package_name": "com.example.restaurante_inteligente",
             "certificate_hash": "820e9f59e7b1c3ec684b920eb14dd791c5f5fa02"
           }
         },
@@ -26,7 +26,7 @@
           "client_id": "853148886476-gu7s918h8p5bmkkhqie7ikcm0tvbnpn8.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.grupo2.restaurante_inteligente",
+            "package_name": "com.example.restaurante_inteligente",
             "certificate_hash": "15a7f7d85e153281f6af2d5d64ad7f7f45f62faa"
           }
         },
@@ -34,7 +34,7 @@
           "client_id": "853148886476-elg8fe1nto8m4ikmjhsn6ibfeo5mv31a.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.grupo2.restaurante_inteligente",
+            "package_name": "com.example.restaurante_inteligente",
             "certificate_hash": "fe6a7b04d3895c26126b168e54bd0a4309a07148"
           }
         },
@@ -42,7 +42,7 @@
           "client_id": "853148886476-7k6dttr8cugeimml22dnpnm3vb5ldrhn.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.grupo2.restaurante_inteligente",
+            "package_name": "com.example.restaurante_inteligente",
             "certificate_hash": "00ab34d08365679995d2d2d9064615a061e03fcb"
           }
         },
@@ -50,8 +50,45 @@
           "client_id": "853148886476-l3d8lfcck7pdfanakd6phg0ariuthrdf.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.grupo2.restaurante_inteligente",
+            "package_name": "com.example.restaurante_inteligente",
             "certificate_hash": "09d23cb57486fe131a479adb6a9ba393606c18ba"
+          }
+        },
+        {
+          "client_id": "853148886476-q5mavotgubv886j9p0o3tivlq6tch0rl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtMBfS3p0bWf4ySW_V4xaLgMPIHPLjJcs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "853148886476-q5mavotgubv886j9p0o3tivlq6tch0rl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:853148886476:android:5a31ca6b057df1e389a969",
+        "android_client_info": {
+          "package_name": "com.grupo2.restaurante_inteligente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "853148886476-0n17g6m722n5b67tmht8rdmqpp496iek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.grupo2.restaurante_inteligente",
+            "certificate_hash": "820e9f59e7b1c3ec684b920eb14dd791c5f5fa02"
           }
         },
         {
